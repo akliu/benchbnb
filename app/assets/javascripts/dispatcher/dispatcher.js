@@ -1,1 +1,1 @@
-AppDispatcher = new Fluxdispatcher();
+AppDispatcher = new FluxDispatcher();
