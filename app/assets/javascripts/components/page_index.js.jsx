@@ -8,7 +8,7 @@
 
     componentWillMount: function(){
       BenchStore.addBenchChangeListener(this._benchesChanged);
-      ApiUtil.fetchBenches();
+      // ApiUtil.fetchBenches();
     },
 
     _benchesChanged: function(){

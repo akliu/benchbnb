@@ -3,7 +3,7 @@
 
   $(function(){
     React.render(
-      <Index />, document.getElementById("content")
+      <Search />, document.getElementById("content")
     );
 
   });
