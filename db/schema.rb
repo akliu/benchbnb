@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20151009172301) do
 
   create_table "benches", force: :cascade do |t|
     t.text     "description", null: false
-    t.integer  "lat",         null: false
-    t.integer  "lng",         null: false
+    t.float    "lat",         null: false
+    t.float    "lng",         null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
