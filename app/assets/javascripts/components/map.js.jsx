@@ -17,11 +17,9 @@
 
     _createMarkers: function(){
       var markers = BenchStore.all();
-      // var googleMarkers = [];
-      // debugger
       var that = this;
+      
       markers.forEach(function(marker){
-        // debugger
         var googleMarker = new google.maps.Marker({
           position: {lat: marker.lat, lng: marker.lng},
           map: that.map,
