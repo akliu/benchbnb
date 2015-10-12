@@ -6,7 +6,7 @@
       return {benches: BenchStore.all()};
     },
 
-    componentWillMount: function(){
+    componentDidMount: function(){
       BenchStore.addBenchChangeListener(this._benchesChanged);
       // ApiUtil.fetchBenches();
     },

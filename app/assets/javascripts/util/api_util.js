@@ -20,11 +20,11 @@
       });
     },
 
-    createBench: function(lat, lng, description) {
+    createBench: function(lat, lng, description, seats) {
       $.ajax({
         url: "api/benches",
         method: "POST",
-        data: {bench: {description, lat, lng}},
+        data: {bench: {description, lat, lng, seats}},
         success: function(benches){
           ApiActions.receiveBenches(benches);
         }

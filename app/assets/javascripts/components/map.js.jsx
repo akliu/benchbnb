@@ -2,6 +2,8 @@
   'use strict';
 
   window.Map = React.createClass({
+    mixins: [ReactRouter.History],
+
     componentDidMount: function(){
       var map = React.findDOMNode(this.refs.map);
       var mapOptions ={
@@ -10,11 +12,16 @@
       };
       this.map = new google.maps.Map(map, mapOptions);
       BenchStore.addBenchChangeListener(this._createMarkers);
+
       this.map.addListener("idle", function(){
         var mapDimensions = this.map.getBounds();
         var southWest = mapDimensions.getSouthWest();
         var northEast = mapDimensions.getNorthEast();
         ApiUtil.fetchBenches(southWest, northEast);
+      }.bind(this));
+
+      this.map.addListener("click", function(e){
+        this.history.pushState(null, "benches/new", e.latLng );
       }.bind(this));
     },
 

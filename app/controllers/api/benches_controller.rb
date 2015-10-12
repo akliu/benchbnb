@@ -8,6 +8,7 @@ class Api::BenchesController < ApplicationController
   def create
     @bench = Bench.new(bench_params)
     if @bench.save
+      @benches = Bench.all
       render :index
     else
       render json: @bench.errors.full_messages, status: 422
@@ -15,6 +16,6 @@ class Api::BenchesController < ApplicationController
   end
 
   def bench_params
-    params.require(:bench).permit(:description, :lat, :lng)
+    params.require(:bench).permit(:description, :lat, :lng, :seating)
   end
 end
