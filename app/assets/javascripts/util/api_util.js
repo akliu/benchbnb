@@ -3,11 +3,11 @@
 
   window.ApiUtil = {
 
-    fetchBenches: function(southWest, northEast) {
-      var south = southWest.lat();
-      var west = southWest.lng();
-      var north = northEast.lat();
-      var east = northEast.lng();
+    fetchBenches: function(south, west, north, east) {
+      // var south = southWest.lat();
+      // var west = southWest.lng();
+      // var north = northEast.lat();
+      // var east = northEast.lng();
 
       // debugger
       $.ajax({

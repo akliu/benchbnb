@@ -17,7 +17,14 @@
         var mapDimensions = this.map.getBounds();
         var southWest = mapDimensions.getSouthWest();
         var northEast = mapDimensions.getNorthEast();
-        ApiUtil.fetchBenches(southWest, northEast);
+        var south = southWest.lat();
+        var west = southWest.lng();
+        var north = northEast.lat();
+        var east = northEast.lng();
+        var params = {north: north, south: south, east: east, west: west};
+        debugger
+        FilterActions.updateFilter(params);
+        ApiUtil.fetchBenches(south, west, north, east);
       }.bind(this));
 
       this.map.addListener("click", function(e){
