@@ -18,12 +18,17 @@
           ApiActions.receiveBenches(benches);
         }
       });
+    },
+
+    createBench: function(lat, lng, description) {
+      $.ajax({
+        url: "api/benches",
+        method: "POST",
+        data: {bench: {description, lat, lng}},
+        success: function(benches){
+          ApiActions.receiveBenches(benches);
+        }
+      });
     }
   };
 }());
-
-
-    // fetchBenches: function(){
-    //   // $.getJSON("api/benches", function(benches){
-    //   //   ApiActions.receiveBenches(benches);
-    //   // });
