@@ -11,14 +11,17 @@
       this.map = new google.maps.Map(map, mapOptions);
       BenchStore.addBenchChangeListener(this._createMarkers);
       this.map.addListener("idle", function(){
-        ApiUtil.fetchBenches();
-      });
+        var mapDimensions = this.map.getBounds();
+        var southWest = mapDimensions.getSouthWest();
+        var northEast = mapDimensions.getNorthEast();
+        ApiUtil.fetchBenches(southWest, northEast);
+      }.bind(this));
     },
 
     _createMarkers: function(){
       var markers = BenchStore.all();
       var that = this;
-      
+
       markers.forEach(function(marker){
         var googleMarker = new google.maps.Marker({
           position: {lat: marker.lat, lng: marker.lng},

@@ -1,6 +1,8 @@
 class Api::BenchesController < ApplicationController
   def index
-    @benches = Bench.all
+    # @benches = Bench.all
+    @benches = Bench.in_bounds(params["south"], params["west"], params["north"],
+                                params["east"])
   end
 
   def create
